@@ -89,7 +89,7 @@ class LocalTimeDirective
 
     public function timeAgo(Carbon $carbon, $options = [])
     {
-        return $this->time($carbon, Arr::wrap($options) + ['type' => 'time-ago']);
+        return $this->relativeTime($carbon, Arr::wrap($options) + ['type' => 'time-ago']);
     }
 
     public function relativeTime(Carbon $carbon, $options = [])
