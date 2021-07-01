@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Carbon;
 use PHPUnit\Framework\TestCase;
-use Tonysm\LaravelLocalTime\LaravelLocalTime;
-use Tonysm\LaravelLocalTime\LocalTimeDirective;
+use Tonysm\LocalTimeLaravel\LocalTimeLaravel;
+use Tonysm\LocalTimeLaravel\LocalTimeDirective;
 
 class LocalTimeDirectiveTest extends TestCase
 {
@@ -15,7 +15,7 @@ class LocalTimeDirectiveTest extends TestCase
         $this->timeUtc = "2013-11-21 06:00:00 UTC";
         $this->time = Carbon::parse($this->timeUtc)->toIso8601ZuluString();
         $this->timeJs = "2013-11-21T06:00:00Z";
-        $this->localTime = new LaravelLocalTime();
+        $this->localTime = new LocalTimeLaravel();
         $this->directive = new LocalTimeDirective($this->localTime);
 
         Carbon::setTestNow(Carbon::parse($this->timeUtc)->toIso8601ZuluString());

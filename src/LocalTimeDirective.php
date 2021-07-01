@@ -1,18 +1,17 @@
 <?php
 
-namespace Tonysm\LaravelLocalTime;
+namespace Tonysm\LocalTimeLaravel;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\HtmlString;
 use Illuminate\View\ComponentAttributeBag;
-use Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag;
 
 class LocalTimeDirective
 {
     private $localTime;
 
-    public function __construct(LaravelLocalTime $localTime)
+    public function __construct(LocalTimeLaravel $localTime)
     {
         $this->localTime = $localTime;
     }

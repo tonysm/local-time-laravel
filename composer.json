@@ -1,9 +1,9 @@
 {
-    "name": "tonysm/laravel-local-time",
+    "name": "tonysm/local-time-laravel",
     "description": "A port of the `local-time` gem from Basecamp.",
     "keywords": [
         "tonysm",
-        "laravel-local-time"
+        "local-time-laravel"
     ],
     "homepage": "https://github.com/tonysm/laravel-local-time",
     "license": "MIT",
@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Tonysm\\LaravelLocalTime\\": "src"
+            "Tonysm\\LocalTimeLaravel\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tonysm\\LaravelLocalTime\\Tests\\": "tests"
+            "Tonysm\\LocalTimeLaravel\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -44,10 +44,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Tonysm\\LaravelLocalTime\\LaravelLocalTimeServiceProvider"
+                "Tonysm\\LocalTimeLaravel\\LocalTimeLaravelServiceProvider"
             ],
             "aliases": {
-                "LaravelLocalTimeFacade": "Tonysm\\LaravelLocalTime\\LaravelLocalTimeFacade"
+                "LocalTimeLaravelFacade": "Tonysm\\LocalTimeLaravel\\LocalTimeLaravelFacade"
             }
         }
     }

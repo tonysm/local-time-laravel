@@ -1,8 +1,8 @@
 <?php
 
-namespace Tonysm\LaravelLocalTime;
+namespace Tonysm\LocalTimeLaravel;
 
-class LaravelLocalTime
+class LocalTimeLaravel
 {
     const DEFAULT_TIME_FORMAT = 'F j, Y g:ia';
     const DEFAULT_DATE_FORMAT = 'F j, Y';
