@@ -1,4 +1,4 @@
-# Laravel Local Time
+# Local Time for Laravel
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/tonysm/laravel-local-time.svg?style=flat-square)](https://packagist.org/packages/tonysm/laravel-local-time)
 [![Total Downloads](https://img.shields.io/packagist/dt/tonysm/laravel-local-time.svg?style=flat-square)](https://packagist.org/packages/tonysm/laravel-local-time)
