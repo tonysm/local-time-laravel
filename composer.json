@@ -47,7 +47,7 @@
                 "Tonysm\\LaravelLocalTime\\LaravelLocalTimeServiceProvider"
             ],
             "aliases": {
-                "LaravelLocalTime": "Tonysm\\LaravelLocalTime\\LaravelLocalTimeFacade"
+                "LaravelLocalTimeFacade": "Tonysm\\LaravelLocalTime\\LaravelLocalTimeFacade"
             }
         }
     }

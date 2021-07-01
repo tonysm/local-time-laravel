@@ -5,15 +5,15 @@ namespace Tonysm\LaravelLocalTime;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Tonysm\LaravelLocalTime\Skeleton\SkeletonClass
+ * @method static \Tonysm\LaravelLocalTime\LaravelLocalTime useDateFormat(string $format)
+ * @method static \Tonysm\LaravelLocalTime\LaravelLocalTime useTimeFormat(string $format)
+ * @method static \Tonysm\LaravelLocalTime\LaravelLocalTime getDateFormat()
+ * @method static \Tonysm\LaravelLocalTime\LaravelLocalTime getTimeFormat()
+ *
+ * @see \Tonysm\LaravelLocalTime\LaravelLocalTime
  */
 class LaravelLocalTimeFacade extends Facade
 {
-    /**
-     * Get the registered name of the component.
-     *
-     * @return string
-     */
     protected static function getFacadeAccessor()
     {
         return 'laravel-local-time';

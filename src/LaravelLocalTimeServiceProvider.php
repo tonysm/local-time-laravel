@@ -2,58 +2,30 @@
 
 namespace Tonysm\LaravelLocalTime;
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class LaravelLocalTimeServiceProvider extends ServiceProvider
 {
-    /**
-     * Bootstrap the application services.
-     */
     public function boot()
     {
-        /*
-         * Optional methods to load your package assets
-         */
-        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'laravel-local-time');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-local-time');
-        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        // $this->loadRoutesFrom(__DIR__.'/routes.php');
-
-        if ($this->app->runningInConsole()) {
-            $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('laravel-local-time.php'),
-            ], 'config');
-
-            // Publishing the views.
-            /*$this->publishes([
-                __DIR__.'/../resources/views' => resource_path('views/vendor/laravel-local-time'),
-            ], 'views');*/
-
-            // Publishing assets.
-            /*$this->publishes([
-                __DIR__.'/../resources/assets' => public_path('vendor/laravel-local-time'),
-            ], 'assets');*/
-
-            // Publishing the translation files.
-            /*$this->publishes([
-                __DIR__.'/../resources/lang' => resource_path('lang/vendor/laravel-local-time'),
-            ], 'lang');*/
-
-            // Registering package commands.
-            // $this->commands([]);
-        }
+        Blade::directive('localtime', function ($expression) {
+            return "<?php echo app(\Tonysm\LaravelLocalTime\LocalTimeDirective::class)->time($expression); ?>";
+        });
+        Blade::directive('localtimeago', function ($expression) {
+            return "<?php echo app(\Tonysm\LaravelLocalTime\LocalTimeDirective::class)->timeAgo($expression); ?>";
+        });
+        Blade::directive('localrelativetime', function ($expression) {
+            return "<?php echo app(\Tonysm\LaravelLocalTime\LocalTimeDirective::class)->relativeTime($expression); ?>";
+        });
+        Blade::directive('localdate', function ($expression) {
+            return "<?php echo app(\Tonysm\LaravelLocalTime\LocalTimeDirective::class)->date($expression); ?>";
+        });
     }
 
-    /**
-     * Register the application services.
-     */
     public function register()
     {
-        // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'laravel-local-time');
-
-        // Register the main class to use with the facade
-        $this->app->singleton('laravel-local-time', function () {
+        $this->app->scoped('laravel-local-time', function () {
             return new LaravelLocalTime;
         });
     }
