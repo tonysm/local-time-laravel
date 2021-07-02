@@ -16,7 +16,7 @@ class LocalTime extends Component
     public function __construct(
         CarbonInterface $value,
         string $format = '',
-        string $type = 'time',
+        string $type = 'time'
     ) {
         $this->value = $this->utcDate($value);
         $this->type = $type;

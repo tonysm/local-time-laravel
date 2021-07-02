@@ -10,7 +10,7 @@ class LocalTimeAgo extends Component
     public CarbonInterface $value;
 
     public function __construct(
-        CarbonInterface $value,
+        CarbonInterface $value
     ) {
         $this->value = $value;
     }

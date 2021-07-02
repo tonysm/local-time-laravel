@@ -12,7 +12,7 @@ class LocalRelativeTime extends Component
 
     public function __construct(
         CarbonInterface $value,
-        string $type,
+        string $type
     ) {
         $this->value = $value;
         $this->type = $type;
