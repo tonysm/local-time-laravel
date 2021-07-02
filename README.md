@@ -1,10 +1,19 @@
-# Local Time for Laravel
+<p align="center" style="margin-top: 2rem; margin-bottom: 2rem;"><img src="/art/local-time-laravel-logo.svg" alt="Logo Local Time Laravel" /></p>
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/tonysm/local-time-laravel.svg?style=flat-square)](https://packagist.org/packages/tonysm/local-time-laravel)
-[![Total Downloads](https://img.shields.io/packagist/dt/tonysm/local-time-laravel.svg?style=flat-square)](https://packagist.org/packages/tonysm/local-time-laravel)
-![GitHub Actions](https://github.com/tonysm/local-time-laravel/actions/workflows/main.yml/badge.svg)
-
-This is a Laravel port of the [`local_time`](https://github.com/basecamp/local_time) gem from Basecamp. It makes it easy to display date and time to users in their local time. Its Blade components render a `time` HTML tag in UTC (making it cache friendly), and the JavaScript component immediately converts those elements from UTC to the Browser's local time.
+<p align="center">
+    <a href="https://github.com/tonysm/local-time-laravel/workflows/Tests/badge.svg">
+        <img src="https://img.shields.io/github/workflow/status/tonysm/local-time-laravel/Tests?label=tests" />
+    </a>
+    <a href="https://packagist.org/packages/tonysm/local-time-laravel">
+        <img src="https://img.shields.io/packagist/dt/tonysm/local-time-laravel" alt="Total Downloads">
+    </a>
+    <a href="https://packagist.org/packages/tonysm/local-time-laravel">
+        <img src="https://img.shields.io/packagist/v/tonysm/local-time-laravel" alt="Latest Stable Version">
+    </a>
+    <a href="https://packagist.org/packages/tonysm/local-time-laravel">
+        <img src="https://img.shields.io/packagist/l/tonysm/local-time-laravel" alt="License">
+    </a>
+</p>
 
 ## Installation
 
