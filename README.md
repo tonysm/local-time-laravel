@@ -4,7 +4,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/tonysm/local-time-laravel.svg?style=flat-square)](https://packagist.org/packages/tonysm/local-time-laravel)
 ![GitHub Actions](https://github.com/tonysm/local-time-laravel/actions/workflows/main.yml/badge.svg)
 
-This is a Laravel port of the [`local_time`](https://github.com/basecamp/local_time) gem from Basecamp. It makes it easy to display date and time to users in their local time. Its Blade directives render a `time` HTML tag in UTC (making it cache friendly), and the JavaScript component immediately converts those elements from UTC to the Browser's local time.
+This is a Laravel port of the [`local_time`](https://github.com/basecamp/local_time) gem from Basecamp. It makes it easy to display date and time to users in their local time. Its Blade components render a `time` HTML tag in UTC (making it cache friendly), and the JavaScript component immediately converts those elements from UTC to the Browser's local time.
 
 ## Installation
 
@@ -33,25 +33,25 @@ LocalTime.start()
 This package adds a couple Blade directives to your project, they are:
 
 ```blade
-@localtime(now())
+<x-local-time :value"now()" />
 ```
 
 Formats the Carbon instance using the default format string. It will conver the regular PHP formats to the `strftime` format for you.
 
 ```blade
-@localtime(now(), 'F j, Y g:ia') %>
+<x-local-time :value="now()" format="F j, Y g:ia" />
 ```
 
-Alias for `@localtime` with a month-formatted default. It converts that format to `%B %e, %Y %l:%M%P`.
+Alias for `<x-local-time />` with a month-formatted default. It converts that format to `%B %e, %Y %l:%M%P`.
 
 ```blade
-@localdate(now(), 'F j, Y')
+<x-local-date :value="now()" format="F j, Y" />
 ```
 
 To set attributes on the time tag, pass a hash as the second argument with a `format` key and your attributes.
 
 ```blade
-@localtime(now(), ['class' => 'my-time'])
+<x-local-time :value="now()" class="my-time" />
 ```
 
 Renders the `time` tag using the default time format and adds the given `class` tag attribute to the element.
@@ -61,7 +61,7 @@ Note: The included strftime JavaScript implementation is not 100% complete. It s
 ### Time ago helper
 
 ```blade
-@localtimeago(now())
+<x-local-time-ago :value="now()" />
 ```
 
 Displays the relative amount of time passed. With age, the descriptions transition from {quantity of seconds, minutes, or hours} to {date + time} to {date}. The `<time>` elements are updated every 60 seconds.
@@ -79,8 +79,8 @@ Examples (in quotes):
 Preset time and date formats that vary with age. The available types are date, time-ago, time-or-date, and weekday. Like the local_time helper, :type can be passed a string or in an options hash.
 
 ```blade
-@localrelativetime(now(), 'weekday')
-@localrelativetime(now(), ['type' => 'time-or-date'])
+<x-local-relative-time :value="now()" type="weekday" />
+<x-local-relative-time :value="now()" type="time-or-date" />
 ```
 
 **Available `type` options:**
@@ -102,7 +102,7 @@ php artisan tinker
 ```
 
 ```blade
-@localtime($user->created_at)
+<x-local-time :value="$user->created_at" />
 ```
 
 Renders:
