@@ -97,7 +97,7 @@ Preset time and date formats that vary with age. The available types are date, t
 **Available `type` options:**
 
 - `date`: Includes the year unless it's current. "Apr 11" or "Apr 11, 2013"
-- `time-ago`: See above. `@localtimeago` calls `@localtimerelative` with this `type` option.
+- `time-ago`: See above. `<x-local-time-ago />` calls `<x-local-time-relative />` with this `type` option.
 - `time-or-date`: Displays the time if it occurs today or the date if not. "3:26pm" or "Apr 11"
 - `weekday`: Displays "Today", "Yesterday", or the weekday (e.g. Wednesday) if the time is within a week of today.
 - `weekday-or-date`: Displays the weekday if it occurs within a week or the date if not. "Yesterday" or "Apr 11"
