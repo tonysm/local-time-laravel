@@ -1,8 +1,8 @@
 # Local Time for Laravel
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/tonysm/laravel-local-time.svg?style=flat-square)](https://packagist.org/packages/tonysm/laravel-local-time)
-[![Total Downloads](https://img.shields.io/packagist/dt/tonysm/laravel-local-time.svg?style=flat-square)](https://packagist.org/packages/tonysm/laravel-local-time)
-![GitHub Actions](https://github.com/tonysm/laravel-local-time/actions/workflows/main.yml/badge.svg)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/tonysm/local-time-laravel.svg?style=flat-square)](https://packagist.org/packages/tonysm/local-time-laravel)
+[![Total Downloads](https://img.shields.io/packagist/dt/tonysm/local-time-laravel.svg?style=flat-square)](https://packagist.org/packages/tonysm/local-time-laravel)
+![GitHub Actions](https://github.com/tonysm/local-time-laravel/actions/workflows/main.yml/badge.svg)
 
 This is a Laravel port of the [`local_time`](https://github.com/basecamp/local_time) gem from Basecamp. It makes it easy to display date and time to users in their local time. Its Blade directives render a `time` HTML tag in UTC (making it cache friendly), and the JavaScript component immediately converts those elements from UTC to the Browser's local time.
 
@@ -11,7 +11,7 @@ This is a Laravel port of the [`local_time`](https://github.com/basecamp/local_t
 1. Install the package via Composer:
 
 ```bash
-composer require tonysm/laravel-local-time
+composer require tonysm/local-time-laravel
 ```
 
 2. Install the `local-time` JS lib via NPM:
