@@ -13,19 +13,6 @@ class LocalTimeLaravelServiceProvider extends ServiceProvider
         Blade::component('local-date', Components\LocalDate::class);
         Blade::component('local-time-ago', Components\LocalTimeAgo::class);
         Blade::component('local-relative-time', Components\LocalRelativeTime::class);
-
-        Blade::directive('localtime', function ($expression) {
-            return "<?php echo app(\Tonysm\LocalTimeLaravel\LocalTimeDirective::class)->time($expression); ?>";
-        });
-        Blade::directive('localtimeago', function ($expression) {
-            return "<?php echo app(\Tonysm\LocalTimeLaravel\LocalTimeDirective::class)->timeAgo($expression); ?>";
-        });
-        Blade::directive('localrelativetime', function ($expression) {
-            return "<?php echo app(\Tonysm\LocalTimeLaravel\LocalTimeDirective::class)->relativeTime($expression); ?>";
-        });
-        Blade::directive('localdate', function ($expression) {
-            return "<?php echo app(\Tonysm\LocalTimeLaravel\LocalTimeDirective::class)->date($expression); ?>";
-        });
     }
 
     public function register()
