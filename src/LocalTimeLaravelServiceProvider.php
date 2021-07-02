@@ -9,6 +9,11 @@ class LocalTimeLaravelServiceProvider extends ServiceProvider
 {
     public function boot()
     {
+        Blade::component('local-time', Components\LocalTime::class);
+        Blade::component('local-date', Components\LocalDate::class);
+        Blade::component('local-time-ago', Components\LocalTimeAgo::class);
+        Blade::component('local-relative-time', Components\LocalRelativeTime::class);
+
         Blade::directive('localtime', function ($expression) {
             return "<?php echo app(\Tonysm\LocalTimeLaravel\LocalTimeDirective::class)->time($expression); ?>";
         });
@@ -25,6 +30,8 @@ class LocalTimeLaravelServiceProvider extends ServiceProvider
 
     public function register()
     {
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'local-time-laravel');
+
         $this->app->scoped('laravel-local-time', function () {
             return new LocalTimeLaravel();
         });
