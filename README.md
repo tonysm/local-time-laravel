@@ -41,7 +41,7 @@ LocalTime.start()
 
 ## Usage
 
-This package adds a couple Blade directives to your project, they are:
+This package adds a couple Blade components to your project, they are:
 
 ```blade
 <x-local-time :value"now()" />
@@ -59,7 +59,7 @@ Alias for `<x-local-time />` with a month-formatted default. It converts that fo
 <x-local-date :value="now()" format="F j, Y" />
 ```
 
-To set attributes on the time tag, pass a hash as the second argument with a `format` key and your attributes.
+You can configure the format used by passing it as a prop to the component. Any other attribute will be rendered in the generated `time` tag.
 
 ```blade
 <x-local-time :value="now()" class="my-time" />
@@ -87,7 +87,7 @@ Examples (in quotes):
 
 ### Relative time helper
 
-Preset time and date formats that vary with age. The available types are date, time-ago, time-or-date, and weekday. Like the local_time helper, :type can be passed a string or in an options hash.
+Preset time and date formats that vary with age. The available types are date, time-ago, time-or-date, and weekday. Like the `<x-local-time />` component, `type` can be passed a string.
 
 ```blade
 <x-local-relative-time :value="now()" type="weekday" />
