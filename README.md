@@ -8,10 +8,7 @@
         <img src="https://img.shields.io/packagist/dt/tonysm/local-time-laravel" alt="Total Downloads">
     </a>
     <a href="https://packagist.org/packages/tonysm/local-time-laravel">
-        <img src="https://img.shields.io/packagist/v/tonysm/local-time-laravel" alt="Latest Stable Version">
-    </a>
-    <a href="https://packagist.org/packages/tonysm/local-time-laravel">
-        <img src="https://img.shields.io/packagist/l/tonysm/local-time-laravel" alt="License">
+        <img src="https://img.shields.io/github/license/tonysm/local-time-laravel" alt="License">
     </a>
 </p>
 
