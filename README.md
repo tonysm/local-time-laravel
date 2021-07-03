@@ -131,6 +131,28 @@ And is converted client-side to:
       data-localized="true">June 30, 2021 22:32pm</time>
 ```
 
+### Configuration
+
+To configure the default date and time formats, you can use the `useTimeFormat` and `useDateFormat` methods on the `LocalTimeLaravelFacade` on your `AppServiceProvider`, like so:
+
+```php
+<?php
+
+use Illuminate\Support\ServiceProvider;
+use Tonysm\LocalTimeLaravel\LocalTimeLaravelFacade;
+
+class AppServiceProvider extends ServiceProvider
+{
+    public function boot()
+    {
+        LocalTimeLaravelFacade::useTimeFormat('H:i');
+        LocalTimeLaravelFacade::useDateFormat('d/m/Y H:i');
+    }
+}
+```
+
+The JavaScript lib allows some configurations as well as internationalization (i18n). To know more about that, head out to the [Rails gem documentation](https://github.com/basecamp/local_time#configuration).
+
 ### Testing
 
 ```bash
