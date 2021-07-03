@@ -44,7 +44,7 @@ This package adds a couple Blade components to your project, they are:
 <x-local-time :value="now()" />
 ```
 
-Formats the Carbon instance using the default format string. It will conver the regular PHP formats to the `strftime` format for you.
+Formats the Carbon instance using the default format string. It will convert the regular PHP formats to the `strftime` format for you.
 
 ```blade
 <x-local-time :value="now()" format="F j, Y g:ia" />
