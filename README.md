@@ -2,7 +2,7 @@
 
 <p align="center">
     <a href="https://github.com/tonysm/local-time-laravel/workflows/run-tests/badge.svg">
-        <img src="https://img.shields.io/github/workflow/status/tonysm/local-time-laravel/run-tests?label=tests" />
+        <img src="https://github.com/tonysm/local-time-laravel/workflows/run-tests/badge.svg" />
     </a>
     <a href="https://packagist.org/packages/tonysm/local-time-laravel">
         <img src="https://img.shields.io/packagist/dt/tonysm/local-time-laravel" alt="Total Downloads">
