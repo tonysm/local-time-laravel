@@ -50,5 +50,7 @@
                 "LocalTimeLaravelFacade": "Tonysm\\LocalTimeLaravel\\LocalTimeLaravelFacade"
             }
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
