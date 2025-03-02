@@ -13,16 +13,18 @@ class LocalTimeComponentTest extends TestCase
     use InteractsWithViews;
 
     private string $time;
+
     private string $timeUTC;
+
     private string $timeJS;
 
     protected function setUp(): void
     {
         parent::setUp();
 
-        $this->timeUTC = "2013-11-21 06:00:00 UTC";
+        $this->timeUTC = '2013-11-21 06:00:00 UTC';
         $this->time = Carbon::parse($this->timeUTC)->toIso8601ZuluString();
-        $this->timeJS = "2013-11-21T06:00:00Z";
+        $this->timeJS = '2013-11-21T06:00:00Z';
 
         $this->travel(Carbon::parse($this->timeUTC)->toIso8601ZuluString());
     }

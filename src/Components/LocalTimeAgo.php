@@ -7,9 +7,7 @@ use Illuminate\View\Component;
 
 class LocalTimeAgo extends Component
 {
-    public function __construct(public CarbonInterface $value)
-    {
-    }
+    public function __construct(public CarbonInterface $value) {}
 
     public function render()
     {

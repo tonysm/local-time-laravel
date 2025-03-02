@@ -26,6 +26,6 @@ class LocalTimeLaravelServiceProvider extends ServiceProvider
 
     public function register(): void
     {
-        $this->app->scoped('laravel-local-time', fn(): \Tonysm\LocalTimeLaravel\LocalTimeLaravel => new LocalTimeLaravel());
+        $this->app->scoped('laravel-local-time', fn (): \Tonysm\LocalTimeLaravel\LocalTimeLaravel => new LocalTimeLaravel);
     }
 }

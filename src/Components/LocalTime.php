@@ -9,7 +9,9 @@ use Tonysm\LocalTimeLaravel\LocalTimeLaravelFacade;
 class LocalTime extends Component
 {
     public CarbonInterface $value;
+
     public string $format;
+
     public string $formatJS;
 
     public function __construct(
@@ -50,7 +52,7 @@ class LocalTime extends Component
             // Timezone - no strf eq : e, I, P, Z
             'O' => '%z', 'T' => '%Z',
             // Full Date / Time - no strf eq : c, r; no date eq : %c, %D, %F, %x
-            'U' => '%s'
+            'U' => '%s',
         ];
 
         return strtr($format, $charsMap);
