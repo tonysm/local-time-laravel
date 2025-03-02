@@ -7,16 +7,7 @@ use Illuminate\View\Component;
 
 class LocalRelativeTime extends Component
 {
-    public CarbonInterface $value;
-    public string $type;
-
-    public function __construct(
-        CarbonInterface $value,
-        string $type
-    ) {
-        $this->value = $value;
-        $this->type = $type;
-    }
+    public function __construct(public CarbonInterface $value, public string $type) {}
 
     public function render()
     {

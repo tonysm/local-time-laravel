@@ -5,10 +5,12 @@ namespace Tonysm\LocalTimeLaravel;
 class LocalTimeLaravel
 {
     const DEFAULT_TIME_FORMAT = 'F j, Y g:ia';
+
     const DEFAULT_DATE_FORMAT = 'F j, Y';
 
-    private $timeFormat = null;
-    private $dateFormat = null;
+    private ?string $timeFormat = null;
+
+    private ?string $dateFormat = null;
 
     public function useTimeFormat(string $format): self
     {

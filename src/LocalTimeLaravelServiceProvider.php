@@ -7,7 +7,7 @@ use Illuminate\Support\ServiceProvider;
 
 class LocalTimeLaravelServiceProvider extends ServiceProvider
 {
-    public function boot()
+    public function boot(): void
     {
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'local-time-laravel');
 
@@ -24,10 +24,8 @@ class LocalTimeLaravelServiceProvider extends ServiceProvider
         Blade::component('local-relative-time', Components\LocalRelativeTime::class);
     }
 
-    public function register()
+    public function register(): void
     {
-        $this->app->scoped('laravel-local-time', function () {
-            return new LocalTimeLaravel();
-        });
+        $this->app->scoped('laravel-local-time', fn (): \Tonysm\LocalTimeLaravel\LocalTimeLaravel => new LocalTimeLaravel);
     }
 }

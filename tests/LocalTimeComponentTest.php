@@ -13,16 +13,18 @@ class LocalTimeComponentTest extends TestCase
     use InteractsWithViews;
 
     private string $time;
+
     private string $timeUTC;
+
     private string $timeJS;
 
     protected function setUp(): void
     {
         parent::setUp();
 
-        $this->timeUTC = "2013-11-21 06:00:00 UTC";
+        $this->timeUTC = '2013-11-21 06:00:00 UTC';
         $this->time = Carbon::parse($this->timeUTC)->toIso8601ZuluString();
-        $this->timeJS = "2013-11-21T06:00:00Z";
+        $this->timeJS = '2013-11-21T06:00:00Z';
 
         $this->travel(Carbon::parse($this->timeUTC)->toIso8601ZuluString());
     }
@@ -34,8 +36,8 @@ class LocalTimeComponentTest extends TestCase
         $this->travelBack();
     }
 
-    /** @test */
-    public function renders_local_time()
+    #[\PHPUnit\Framework\Attributes\Test]
+    public function renders_local_time(): void
     {
         $view = $this->blade('<x-local-time :value="$date" />', [
             'date' => $date = Carbon::parse($this->timeUTC),
@@ -47,8 +49,8 @@ class LocalTimeComponentTest extends TestCase
         $view->assertSee($date->format(LocalTimeLaravelFacade::getTimeFormat()), true);
     }
 
-    /** @test */
-    public function renders_local_time_with_format()
+    #[\PHPUnit\Framework\Attributes\Test]
+    public function renders_local_time_with_format(): void
     {
         $view = $this->blade('<x-local-time :value="$date" :format="$format" />', [
             'date' => $date = Carbon::parse($this->timeUTC),
@@ -61,8 +63,8 @@ class LocalTimeComponentTest extends TestCase
         $view->assertSee($date->format($format), true);
     }
 
-    /** @test */
-    public function renders_local_time_with_attributes()
+    #[\PHPUnit\Framework\Attributes\Test]
+    public function renders_local_time_with_attributes(): void
     {
         $view = $this->blade('<x-local-time :value="$date" style="display: none;" />', [
             'date' => $date = Carbon::parse($this->timeUTC),
@@ -75,8 +77,8 @@ class LocalTimeComponentTest extends TestCase
         $view->assertSee($date->format(LocalTimeLaravelFacade::getTimeFormat()));
     }
 
-    /** @test */
-    public function renders_date()
+    #[\PHPUnit\Framework\Attributes\Test]
+    public function renders_date(): void
     {
         $view = $this->blade('<x-local-date :value="$date" />', [
             'date' => $date = Carbon::parse($this->timeUTC),
@@ -88,8 +90,8 @@ class LocalTimeComponentTest extends TestCase
         $view->assertSee($date->format(LocalTimeLaravelFacade::getDateFormat()));
     }
 
-    /** @test */
-    public function renders_date_with_format()
+    #[\PHPUnit\Framework\Attributes\Test]
+    public function renders_date_with_format(): void
     {
         $view = $this->blade('<x-local-date :value="$date" :format="$format" />', [
             'date' => $date = Carbon::parse($this->timeUTC),
@@ -102,8 +104,8 @@ class LocalTimeComponentTest extends TestCase
         $view->assertSee($date->format($format));
     }
 
-    /** @test */
-    public function renders_date_with_attributes()
+    #[\PHPUnit\Framework\Attributes\Test]
+    public function renders_date_with_attributes(): void
     {
         $view = $this->blade('<x-local-date :value="$date" class="date-time" />', [
             'date' => $date = Carbon::parse($this->timeUTC),
@@ -116,8 +118,8 @@ class LocalTimeComponentTest extends TestCase
         $view->assertSee($date->format(LocalTimeLaravelFacade::getDateFormat()));
     }
 
-    /** @test */
-    public function renders_local_time_ago()
+    #[\PHPUnit\Framework\Attributes\Test]
+    public function renders_local_time_ago(): void
     {
         $view = $this->blade('<x-local-time-ago :value="$date" />', [
             'date' => $date = Carbon::parse($this->timeUTC),
@@ -130,8 +132,8 @@ class LocalTimeComponentTest extends TestCase
         $view->assertSee($date->format(LocalTimeLaravelFacade::getDateFormat()));
     }
 
-    /** @test */
-    public function renders_local_time_ago_with_options()
+    #[\PHPUnit\Framework\Attributes\Test]
+    public function renders_local_time_ago_with_options(): void
     {
         $view = $this->blade('<x-local-time-ago :value="$date" class="date-time" />', [
             'date' => $date = Carbon::parse($this->timeUTC),
@@ -144,8 +146,8 @@ class LocalTimeComponentTest extends TestCase
         $view->assertSee($date->format(LocalTimeLaravelFacade::getDateFormat()));
     }
 
-    /** @test */
-    public function renders_local_relative_time()
+    #[\PHPUnit\Framework\Attributes\Test]
+    public function renders_local_relative_time(): void
     {
         $view = $this->blade('<x-local-relative-time :value="$date" :type="$type" />', [
             'date' => $date = Carbon::parse($this->timeUTC),
@@ -159,8 +161,8 @@ class LocalTimeComponentTest extends TestCase
         $view->assertSee($date->format(LocalTimeLaravelFacade::getDateFormat()));
     }
 
-    /** @test */
-    public function renders_local_relative_time_with_options()
+    #[\PHPUnit\Framework\Attributes\Test]
+    public function renders_local_relative_time_with_options(): void
     {
         $view = $this->blade('<x-local-relative-time :value="$date" :type="$type" class="date-time" />', [
             'date' => $date = Carbon::parse($this->timeUTC),
