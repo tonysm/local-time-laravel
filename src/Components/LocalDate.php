@@ -8,14 +8,12 @@ use Tonysm\LocalTimeLaravel\LocalTimeLaravelFacade;
 
 class LocalDate extends Component
 {
-    public CarbonInterface $value;
     public string $format;
 
     public function __construct(
-        CarbonInterface $value,
+        public CarbonInterface $value,
         string $format = ''
     ) {
-        $this->value = $value;
         $this->format = $format ?: LocalTimeLaravelFacade::getDateFormat();
     }
 

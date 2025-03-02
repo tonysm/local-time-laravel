@@ -11,15 +11,13 @@ class LocalTime extends Component
     public CarbonInterface $value;
     public string $format;
     public string $formatJS;
-    public string $type;
 
     public function __construct(
         CarbonInterface $value,
         string $format = '',
-        string $type = 'time'
+        public string $type = 'time'
     ) {
         $this->value = $this->utcDate($value);
-        $this->type = $type;
 
         $format = $format ?: LocalTimeLaravelFacade::getTimeFormat();
 
@@ -34,7 +32,7 @@ class LocalTime extends Component
         return $value->isUtc() ? $value : $value->utc();
     }
 
-    public function strfTimeFormat(string $format)
+    public function strfTimeFormat(string $format): string
     {
         // Thanks to baptiste at php dot net: https://www.php.net/manual/en/function.strftime.php#96424
 

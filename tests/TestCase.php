@@ -16,7 +16,7 @@ class TestCase extends TestbenchTestCase
     protected function getPackageProviders($app)
     {
         return [
-            'Tonysm\LocalTimeLaravel\LocalTimeLaravelServiceProvider',
+            \Tonysm\LocalTimeLaravel\LocalTimeLaravelServiceProvider::class,
         ];
     }
 }
