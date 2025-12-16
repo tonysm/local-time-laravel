@@ -8,20 +8,24 @@ use Tonysm\LocalTimeLaravel\LocalTimeLaravelFacade;
 
 class LocalTime extends Component
 {
-    public CarbonInterface $value;
+    public ?CarbonInterface $value;
 
     public string $format;
+
+    public string $nullTime;
 
     public string $formatJS;
 
     public function __construct(
-        CarbonInterface $value,
+        ?CarbonInterface $value,
         string $format = '',
         public string $type = 'time'
     ) {
-        $this->value = $this->utcDate($value);
+        $this->value = $value == null ? null : $this->utcDate($value);
 
         $format = $format ?: LocalTimeLaravelFacade::getTimeFormat();
+
+        $this->nullTime = LocalTimeLaravelFacade::getNullTime();
 
         $this->format = $format;
         $this->formatJS = $this->strfTimeFormat($format);

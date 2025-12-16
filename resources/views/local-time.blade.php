@@ -3,6 +3,6 @@
     data-format="{{ $formatJS }}"
     @endif
     data-local="{{ $type }}"
-    datetime="{{ $value->toIso8601ZuluString() }}"
+    datetime="{{ $value?->toIso8601ZuluString() }}"
     {{ $attributes->except(['type']) }}
->{{ $value->format($format) }}</time>
+>{{ $value == null ? $nullTime : $value?->format($format) }}</time>
