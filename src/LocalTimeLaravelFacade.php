@@ -8,8 +8,10 @@ use Tonysm\LaravelLocalTime\LocalTimeLaravel;
 /**
  * @method static \Tonysm\LocalTimeLaravel\LocalTimeLaravel useDateFormat(string $format)
  * @method static \Tonysm\LocalTimeLaravel\LocalTimeLaravel useTimeFormat(string $format)
- * @method static \Tonysm\LocalTimeLaravel\LocalTimeLaravel getDateFormat()
- * @method static \Tonysm\LocalTimeLaravel\LocalTimeLaravel getTimeFormat()
+ * @method static \Tonysm\LocalTimeLaravel\LocalTimeLaravel useEmptyPlaceholder(string $emptyPlaceholder)
+ * @method static string getDateFormat()
+ * @method static string getTimeFormat()
+ * @method static string getEmptyPlaceholder()
  *
  * @see LocalTimeLaravel
  */

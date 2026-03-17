@@ -131,6 +131,17 @@ And is converted client-side to:
       data-localized="true">June 30, 2021 22:32pm</time>
 ```
 
+### Empty Placeholder
+
+When a `null` value is passed to `<x-local-time>` or `<x-local-date>`, the component renders an empty placeholder string (default `' -- '`) instead of a formatted date:
+
+```blade
+<x-local-time :value="$user->deleted_at" />
+{{-- Renders " -- " if deleted_at is null --}}
+```
+
+You can customize the placeholder globally (see [Configuration](#configuration) below).
+
 ### Configuration
 
 To configure the default date and time formats, you can use the `useTimeFormat` and `useDateFormat` methods on the `LocalTimeLaravelFacade` on your `AppServiceProvider`, like so:
@@ -147,6 +158,7 @@ class AppServiceProvider extends ServiceProvider
     {
         LocalTimeLaravelFacade::useTimeFormat('H:i');
         LocalTimeLaravelFacade::useDateFormat('d/m/Y H:i');
+        LocalTimeLaravelFacade::useEmptyPlaceholder('N/A');
     }
 }
 ```

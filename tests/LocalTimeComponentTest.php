@@ -177,4 +177,39 @@ class LocalTimeComponentTest extends TestCase
         $view->assertSee('class="date-time"', false);
         $view->assertSee($date->format(LocalTimeLaravelFacade::getDateFormat()));
     }
+
+    #[Test]
+    public function renders_empty_placeholder_when_value_is_null(): void
+    {
+        $view = $this->blade('<x-local-time :value="$date" />', [
+            'date' => null,
+        ]);
+
+        $view->assertSee(' -- ');
+        $view->assertSee('datetime=""', false);
+    }
+
+    #[Test]
+    public function renders_custom_empty_placeholder(): void
+    {
+        LocalTimeLaravelFacade::useEmptyPlaceholder('N/A');
+
+        $view = $this->blade('<x-local-time :value="$date" />', [
+            'date' => null,
+        ]);
+
+        $view->assertSee('N/A');
+        $view->assertDontSee(' -- ');
+    }
+
+    #[Test]
+    public function renders_empty_placeholder_for_local_date_with_null_value(): void
+    {
+        $view = $this->blade('<x-local-date :value="$date" />', [
+            'date' => null,
+        ]);
+
+        $view->assertSee(' -- ');
+        $view->assertSee('datetime=""', false);
+    }
 }

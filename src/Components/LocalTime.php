@@ -12,7 +12,7 @@ class LocalTime extends Component
 
     public string $format;
 
-    public string $nullTime;
+    public string $emptyPlaceholder;
 
     public string $formatJS;
 
@@ -25,7 +25,7 @@ class LocalTime extends Component
 
         $format = $format ?: LocalTimeLaravelFacade::getTimeFormat();
 
-        $this->nullTime = LocalTimeLaravelFacade::getNullTime();
+        $this->emptyPlaceholder = LocalTimeLaravelFacade::getEmptyPlaceholder();
 
         $this->format = $format;
         $this->formatJS = $this->strfTimeFormat($format);

@@ -6,13 +6,13 @@ class LocalTimeLaravel
 {
     const DEFAULT_TIME_FORMAT = 'F j, Y g:ia';
 
-    const DEFAULT_NULL_TIME = ' -- ';
+    const DEFAULT_EMPTY_PLACEHOLDER = ' -- ';
 
     const DEFAULT_DATE_FORMAT = 'F j, Y';
 
     private ?string $timeFormat = null;
 
-    private ?string $nullTime = ' -- ';
+    private ?string $emptyPlaceholder = ' -- ';
 
     private ?string $dateFormat = null;
 
@@ -23,9 +23,9 @@ class LocalTimeLaravel
         return $this;
     }
 
-    public function useNullTime(string $nullTime): self
+    public function useEmptyPlaceholder(string $emptyPlaceholder): self
     {
-        $this->nullTime = $nullTime;
+        $this->emptyPlaceholder = $emptyPlaceholder;
 
         return $this;
     }
@@ -42,9 +42,9 @@ class LocalTimeLaravel
         return $this->timeFormat ?: static::DEFAULT_TIME_FORMAT;
     }
 
-    public function getNullTime()
+    public function getEmptyPlaceholder()
     {
-        return $this->nullTime ?: static::DEFAULT_NULL_TIME;
+        return $this->emptyPlaceholder ?: static::DEFAULT_EMPTY_PLACEHOLDER;
     }
 
     public function getDateFormat()
