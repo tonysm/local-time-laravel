@@ -3,6 +3,7 @@
 namespace Tonysm\LocalTimeLaravel;
 
 use Illuminate\Support\Facades\Facade;
+use Tonysm\LaravelLocalTime\LocalTimeLaravel;
 
 /**
  * @method static \Tonysm\LocalTimeLaravel\LocalTimeLaravel useDateFormat(string $format)
@@ -10,7 +11,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static \Tonysm\LocalTimeLaravel\LocalTimeLaravel getDateFormat()
  * @method static \Tonysm\LocalTimeLaravel\LocalTimeLaravel getTimeFormat()
  *
- * @see \Tonysm\LaravelLocalTime\LocalTimeLaravel
+ * @see LocalTimeLaravel
  */
 class LocalTimeLaravelFacade extends Facade
 {

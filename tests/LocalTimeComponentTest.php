@@ -5,6 +5,7 @@ namespace Tonysm\LocalTimeLaravel\Tests;
 use Illuminate\Foundation\Testing\Concerns\InteractsWithTime;
 use Illuminate\Foundation\Testing\Concerns\InteractsWithViews;
 use Illuminate\Support\Carbon;
+use PHPUnit\Framework\Attributes\Test;
 use Tonysm\LocalTimeLaravel\LocalTimeLaravelFacade;
 
 class LocalTimeComponentTest extends TestCase
@@ -36,7 +37,7 @@ class LocalTimeComponentTest extends TestCase
         $this->travelBack();
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function renders_local_time(): void
     {
         $view = $this->blade('<x-local-time :value="$date" />', [
@@ -49,7 +50,7 @@ class LocalTimeComponentTest extends TestCase
         $view->assertSee($date->format(LocalTimeLaravelFacade::getTimeFormat()), true);
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function renders_local_time_with_format(): void
     {
         $view = $this->blade('<x-local-time :value="$date" :format="$format" />', [
@@ -63,7 +64,7 @@ class LocalTimeComponentTest extends TestCase
         $view->assertSee($date->format($format), true);
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function renders_local_time_with_attributes(): void
     {
         $view = $this->blade('<x-local-time :value="$date" style="display: none;" />', [
@@ -77,7 +78,7 @@ class LocalTimeComponentTest extends TestCase
         $view->assertSee($date->format(LocalTimeLaravelFacade::getTimeFormat()));
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function renders_date(): void
     {
         $view = $this->blade('<x-local-date :value="$date" />', [
@@ -90,7 +91,7 @@ class LocalTimeComponentTest extends TestCase
         $view->assertSee($date->format(LocalTimeLaravelFacade::getDateFormat()));
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function renders_date_with_format(): void
     {
         $view = $this->blade('<x-local-date :value="$date" :format="$format" />', [
@@ -104,7 +105,7 @@ class LocalTimeComponentTest extends TestCase
         $view->assertSee($date->format($format));
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function renders_date_with_attributes(): void
     {
         $view = $this->blade('<x-local-date :value="$date" class="date-time" />', [
@@ -118,7 +119,7 @@ class LocalTimeComponentTest extends TestCase
         $view->assertSee($date->format(LocalTimeLaravelFacade::getDateFormat()));
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function renders_local_time_ago(): void
     {
         $view = $this->blade('<x-local-time-ago :value="$date" />', [
@@ -132,7 +133,7 @@ class LocalTimeComponentTest extends TestCase
         $view->assertSee($date->format(LocalTimeLaravelFacade::getDateFormat()));
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function renders_local_time_ago_with_options(): void
     {
         $view = $this->blade('<x-local-time-ago :value="$date" class="date-time" />', [
@@ -146,7 +147,7 @@ class LocalTimeComponentTest extends TestCase
         $view->assertSee($date->format(LocalTimeLaravelFacade::getDateFormat()));
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function renders_local_relative_time(): void
     {
         $view = $this->blade('<x-local-relative-time :value="$date" :type="$type" />', [
@@ -161,7 +162,7 @@ class LocalTimeComponentTest extends TestCase
         $view->assertSee($date->format(LocalTimeLaravelFacade::getDateFormat()));
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function renders_local_relative_time_with_options(): void
     {
         $view = $this->blade('<x-local-relative-time :value="$date" :type="$type" class="date-time" />', [

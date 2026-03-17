@@ -12,7 +12,7 @@ class LocalTimeLaravel
 
     private ?string $timeFormat = null;
 
-    private ?string $nullTime = " -- ";
+    private ?string $nullTime = ' -- ';
 
     private ?string $dateFormat = null;
 
