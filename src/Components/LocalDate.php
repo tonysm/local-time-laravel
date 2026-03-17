@@ -11,7 +11,7 @@ class LocalDate extends Component
     public string $format;
 
     public function __construct(
-        public CarbonInterface $value,
+        public ?CarbonInterface $value,
         string $format = ''
     ) {
         $this->format = $format ?: LocalTimeLaravelFacade::getDateFormat();
