@@ -1,15 +1,9 @@
 <p align="center" style="margin-top: 2rem; margin-bottom: 2rem;"><img src="/art/local-time-laravel-logo.svg" alt="Logo Local Time Laravel" /></p>
 
 <p align="center">
-    <a href="https://github.com/tonysm/local-time-laravel/workflows/run-tests/badge.svg">
-        <img src="https://github.com/tonysm/local-time-laravel/workflows/run-tests/badge.svg" />
-    </a>
-    <a href="https://packagist.org/packages/tonysm/local-time-laravel">
-        <img src="https://img.shields.io/packagist/dt/tonysm/local-time-laravel" alt="Total Downloads">
-    </a>
-    <a href="https://packagist.org/packages/tonysm/local-time-laravel">
-        <img src="https://img.shields.io/github/license/tonysm/local-time-laravel" alt="License">
-    </a>
+    <a href="https://github.com/tonysm/local-time-laravel/workflows/run-tests/badge.svg"><img src="https://github.com/tonysm/local-time-laravel/workflows/run-tests/badge.svg" /></a>
+    <a href="https://packagist.org/packages/tonysm/local-time-laravel"><img src="https://img.shields.io/packagist/dt/tonysm/local-time-laravel" alt="Total Downloads"></a>
+    <a href="https://packagist.org/packages/tonysm/local-time-laravel"><img src="https://img.shields.io/github/license/tonysm/local-time-laravel" alt="License"></a>
 </p>
 
 This is a Laravel port of the [`local_time`](https://github.com/basecamp/local_time) gem from Basecamp. It makes it easy to display date and time to users in their local time. Its Blade components render a `time` HTML tag in UTC (making it cache friendly), and the JavaScript component immediately converts those elements from UTC to the Browser's local time.
@@ -22,7 +16,7 @@ This is a Laravel port of the [`local_time`](https://github.com/basecamp/local_t
 composer require tonysm/local-time-laravel
 ```
 
-2. Install the `local-time` JS lib via NPM:
+1. Install the `local-time` JS lib via NPM:
 
 ```bash
 npm install local-time -D
@@ -181,12 +175,12 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ### Security
 
-If you discover any security related issues, please email tonysm@hey.com instead of using the issue tracker.
+If you discover any security related issues, please email <tonysm@hey.com> instead of using the issue tracker.
 
 ## Credits
 
--   [Tony Messias](https://github.com/tonysm)
--   [All Contributors](../../contributors)
+- [Tony Messias](https://github.com/tonysm)
+- [All Contributors](../../contributors)
 
 ## License
 
