@@ -7,6 +7,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Process;
 use RuntimeException;
+use Symfony\Component\Process\PhpExecutableFinder;
 use Symfony\Component\Process\Process as ComponentProcess;
 use Tonysm\LocalTimeLaravel\LocalTimeLaravelServiceProvider;
 
@@ -129,6 +130,11 @@ class InstallCommand extends Command
         return [
             'local-time' => '^3.0.3',
         ];
+    }
+
+    private function phpBinary(): string
+    {
+        return (new PhpExecutableFinder)->find(false) ?: 'php';
     }
 
     /**
