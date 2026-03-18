@@ -51,7 +51,7 @@
         "serve": [
             "Composer\\Config::disableProcessTimeout",
             "@build",
-            "@php vendor/bin/testbench serve --ansi"
+            "@php vendor/bin/testbench serve --ansi --host=0.0.0.0"
         ],
         "lint": [
             "@php vendor/bin/pint --ansi"
