@@ -1,0 +1,27 @@
+laravel: "@testbench"
+
+providers:
+  - Tonysm\LocalTimeLaravel\LocalTimeLaravelServiceProvider
+  - Workbench\App\Providers\WorkbenchServiceProvider
+
+workbench:
+  start: "/demo"
+  install: true
+  health: false
+  discovers:
+    web: true
+    api: false
+    commands: false
+    components: false
+    factories: false
+    views: true
+  build:
+    - asset-publish
+    - create-sqlite-db
+    - db-wipe
+  assets:
+    - local-time-laravel-assets
+  sync:
+    - from: storage
+      to: workbench/storage
+      reverse: true

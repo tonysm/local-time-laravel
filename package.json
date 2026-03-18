@@ -1,0 +1,16 @@
+{
+    "name": "local-time-laravel",
+    "version": "1.0.0",
+    "description": "Build scripts for Local Time Laravel",
+    "license": "MIT",
+    "author": "Tony Messias",
+    "scripts": {
+        "build": "node ./scripts/build.js"
+    },
+    "devDependencies": {
+        "esbuild": "^0.14.49"
+    },
+    "dependencies": {
+        "local-time": "^3.0.3"
+    }
+}
