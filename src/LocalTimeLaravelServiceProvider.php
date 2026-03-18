@@ -2,26 +2,23 @@
 
 namespace Tonysm\LocalTimeLaravel;
 
-use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\View\Compilers\BladeCompiler;
 
 class LocalTimeLaravelServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'local-time-laravel');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'local-time');
 
-        if ($this->app->runningInConsole()) {
-            // Publishing assets.
-            $this->publishes([
-                __DIR__.'/../resources/assets' => public_path('vendor/laravel-local-time'),
-            ], 'assets');
-        }
+        $this->configureComponents();
+    }
 
-        Blade::component('local-time', Components\LocalTime::class);
-        Blade::component('local-date', Components\LocalDate::class);
-        Blade::component('local-time-ago', Components\LocalTimeAgo::class);
-        Blade::component('local-relative-time', Components\LocalRelativeTime::class);
+    private function configureComponents(): void
+    {
+        $this->callAfterResolving('blade.compiler', function (BladeCompiler $blade): void {
+            $blade->anonymousComponentPath(__DIR__.'/../resources/views/components', 'local-time');
+        });
     }
 
     public function register(): void

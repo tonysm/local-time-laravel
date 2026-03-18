@@ -40,7 +40,7 @@ class LocalTimeComponentTest extends TestCase
     #[Test]
     public function renders_local_time(): void
     {
-        $view = $this->blade('<x-local-time :value="$date" />', [
+        $view = $this->blade('<x-local-time::time :value="$date" />', [
             'date' => $date = Carbon::parse($this->timeUTC),
         ]);
 
@@ -53,7 +53,7 @@ class LocalTimeComponentTest extends TestCase
     #[Test]
     public function renders_local_time_with_format(): void
     {
-        $view = $this->blade('<x-local-time :value="$date" :format="$format" />', [
+        $view = $this->blade('<x-local-time::time :value="$date" :format="$format" />', [
             'date' => $date = Carbon::parse($this->timeUTC),
             'format' => $format = 'M j',
         ]);
@@ -67,7 +67,7 @@ class LocalTimeComponentTest extends TestCase
     #[Test]
     public function renders_local_time_with_attributes(): void
     {
-        $view = $this->blade('<x-local-time :value="$date" style="display: none;" />', [
+        $view = $this->blade('<x-local-time::time :value="$date" style="display: none;" />', [
             'date' => $date = Carbon::parse($this->timeUTC),
         ]);
 
@@ -81,7 +81,7 @@ class LocalTimeComponentTest extends TestCase
     #[Test]
     public function renders_date(): void
     {
-        $view = $this->blade('<x-local-date :value="$date" />', [
+        $view = $this->blade('<x-local-time::date :value="$date" />', [
             'date' => $date = Carbon::parse($this->timeUTC),
         ]);
 
@@ -94,7 +94,7 @@ class LocalTimeComponentTest extends TestCase
     #[Test]
     public function renders_date_with_format(): void
     {
-        $view = $this->blade('<x-local-date :value="$date" :format="$format" />', [
+        $view = $this->blade('<x-local-time::date :value="$date" :format="$format" />', [
             'date' => $date = Carbon::parse($this->timeUTC),
             'format' => $format = 'M j',
         ]);
@@ -108,7 +108,7 @@ class LocalTimeComponentTest extends TestCase
     #[Test]
     public function renders_date_with_attributes(): void
     {
-        $view = $this->blade('<x-local-date :value="$date" class="date-time" />', [
+        $view = $this->blade('<x-local-time::date :value="$date" class="date-time" />', [
             'date' => $date = Carbon::parse($this->timeUTC),
         ]);
 
@@ -122,7 +122,7 @@ class LocalTimeComponentTest extends TestCase
     #[Test]
     public function renders_local_time_ago(): void
     {
-        $view = $this->blade('<x-local-time-ago :value="$date" />', [
+        $view = $this->blade('<x-local-time::ago :value="$date" />', [
             'date' => $date = Carbon::parse($this->timeUTC),
         ]);
 
@@ -136,7 +136,7 @@ class LocalTimeComponentTest extends TestCase
     #[Test]
     public function renders_local_time_ago_with_options(): void
     {
-        $view = $this->blade('<x-local-time-ago :value="$date" class="date-time" />', [
+        $view = $this->blade('<x-local-time::ago :value="$date" class="date-time" />', [
             'date' => $date = Carbon::parse($this->timeUTC),
         ]);
 
@@ -150,7 +150,7 @@ class LocalTimeComponentTest extends TestCase
     #[Test]
     public function renders_local_relative_time(): void
     {
-        $view = $this->blade('<x-local-relative-time :value="$date" :type="$type" />', [
+        $view = $this->blade('<x-local-time::relative :value="$date" :type="$type" />', [
             'date' => $date = Carbon::parse($this->timeUTC),
             'type' => $type = 'time-or-date',
         ]);
@@ -165,7 +165,7 @@ class LocalTimeComponentTest extends TestCase
     #[Test]
     public function renders_local_relative_time_with_options(): void
     {
-        $view = $this->blade('<x-local-relative-time :value="$date" :type="$type" class="date-time" />', [
+        $view = $this->blade('<x-local-time::relative :value="$date" :type="$type" class="date-time" />', [
             'date' => $date = Carbon::parse($this->timeUTC),
             'type' => $type = 'weekday',
         ]);
@@ -181,7 +181,7 @@ class LocalTimeComponentTest extends TestCase
     #[Test]
     public function renders_empty_placeholder_when_value_is_null(): void
     {
-        $view = $this->blade('<x-local-time :value="$date" />', [
+        $view = $this->blade('<x-local-time::time :value="$date" />', [
             'date' => null,
         ]);
 
@@ -194,7 +194,7 @@ class LocalTimeComponentTest extends TestCase
     {
         LocalTimeLaravelFacade::useEmptyPlaceholder('N/A');
 
-        $view = $this->blade('<x-local-time :value="$date" />', [
+        $view = $this->blade('<x-local-time::time :value="$date" />', [
             'date' => null,
         ]);
 
@@ -205,7 +205,7 @@ class LocalTimeComponentTest extends TestCase
     #[Test]
     public function renders_empty_placeholder_for_local_date_with_null_value(): void
     {
-        $view = $this->blade('<x-local-date :value="$date" />', [
+        $view = $this->blade('<x-local-time::date :value="$date" />', [
             'date' => null,
         ]);
 
