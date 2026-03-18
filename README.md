@@ -35,25 +35,25 @@ LocalTime.start()
 This package adds a couple Blade components to your project, they are:
 
 ```blade
-<x-local-time :value="now()" />
+<x-local-time::time :value="now()" />
 ```
 
 Formats the Carbon instance using the default format string. It will convert the regular PHP formats to the `strftime` format for you.
 
 ```blade
-<x-local-time :value="now()" format="F j, Y g:ia" />
+<x-local-time::time :value="now()" format="F j, Y g:ia" />
 ```
 
-Alias for `<x-local-time />` with a month-formatted default. It converts that format to `%B %e, %Y %l:%M%P`.
+Alias for `<x-local-time::time />` with a month-formatted default. It converts that format to `%B %e, %Y %l:%M%P`.
 
 ```blade
-<x-local-date :value="now()" format="F j, Y" />
+<x-local-time::date :value="now()" format="F j, Y" />
 ```
 
 You can configure the format used by passing it as a prop to the component. Any other attribute will be rendered in the generated `time` tag.
 
 ```blade
-<x-local-time :value="now()" class="my-time" />
+<x-local-time::time :value="now()" class="my-time" />
 ```
 
 Renders the `time` tag using the default time format and adds the given `class` tag attribute to the element.
@@ -63,7 +63,7 @@ Note: The included strftime JavaScript implementation is not 100% complete. It s
 ### Time ago helper
 
 ```blade
-<x-local-time-ago :value="now()" />
+<x-local-time::ago :value="now()" />
 ```
 
 Displays the relative amount of time passed. With age, the descriptions transition from {quantity of seconds, minutes, or hours} to {date + time} to {date}. The `<time>` elements are updated every 60 seconds.
@@ -78,17 +78,17 @@ Examples (in quotes):
 
 ### Relative time helper
 
-Preset time and date formats that vary with age. The available types are date, time-ago, time-or-date, and weekday. Like the `<x-local-time />` component, `type` can be passed a string.
+Preset time and date formats that vary with age. The available types are date, time-ago, time-or-date, and weekday. Like the `<x-local-time::time />` component, `type` can be passed a string. The default type is `time-or-date`.
 
 ```blade
-<x-local-relative-time :value="now()" type="weekday" />
-<x-local-relative-time :value="now()" type="time-or-date" />
+<x-local-time::relative :value="now()" type="weekday" />
+<x-local-time::relative :value="now()" type="time-or-date" />
 ```
 
 **Available `type` options:**
 
 - `date`: Includes the year unless it's current. "Apr 11" or "Apr 11, 2013"
-- `time-ago`: See above. `<x-local-time-ago />` calls `<x-local-time-relative />` with this `type` option.
+- `time-ago`: See above. `<x-local-time::ago />` calls `<x-local-time::relative />` with this `type` option.
 - `time-or-date`: Displays the time if it occurs today or the date if not. "3:26pm" or "Apr 11"
 - `weekday`: Displays "Today", "Yesterday", or the weekday (e.g. Wednesday) if the time is within a week of today.
 - `weekday-or-date`: Displays the weekday if it occurs within a week or the date if not. "Yesterday" or "Apr 11"
@@ -104,7 +104,7 @@ php artisan tinker
 ```
 
 ```blade
-<x-local-time :value="$user->created_at" />
+<x-local-time::time :value="$user->created_at" />
 ```
 
 Renders:
@@ -127,10 +127,10 @@ And is converted client-side to:
 
 ### Empty Placeholder
 
-When a `null` value is passed to `<x-local-time>` or `<x-local-date>`, the component renders an empty placeholder string (default `' -- '`) instead of a formatted date:
+When a `null` value is passed to `<x-local-time::time>` or `<x-local-time::date>`, the component renders an empty placeholder string (default `' -- '`) instead of a formatted date:
 
 ```blade
-<x-local-time :value="$user->deleted_at" />
+<x-local-time::time :value="$user->deleted_at" />
 {{-- Renders " -- " if deleted_at is null --}}
 ```
 
