@@ -45,13 +45,13 @@ class InstallCommand extends Command
             $this->components->warn("File {$trixRelativeDestinationPath} already exists.");
         } else {
             File::ensureDirectoryExists(dirname($trixAbsoluteDestinationPath), recursive: true);
-            File::copy(__DIR__ . '/../../resources/js/libs/localtime.js', $trixAbsoluteDestinationPath);
+            File::copy(__DIR__.'/../../resources/js/libs/localtime.js', $trixAbsoluteDestinationPath);
         }
 
         $entrypoint = Arr::first([
             resource_path('js/libs/index.js'),
             resource_path('js/app.js'),
-        ], fn($file): bool => file_exists($file));
+        ], fn ($file): bool => file_exists($file));
 
         if (! $entrypoint) {
             return;
@@ -82,7 +82,7 @@ class InstallCommand extends Command
             'local-time-laravel-assets',
             '--provider',
             LocalTimeLaravelServiceProvider::class,
-        ], fn($_type, $output) => $this->output->write($output));
+        ], fn ($_type, $output) => $this->output->write($output));
     }
 
     private function updateJsDependenciesWithImportmaps(): void
@@ -96,7 +96,7 @@ class InstallCommand extends Command
 
     private function updateJsDependenciesWithNpm(): void
     {
-        static::updateNodePackages(fn($packages): array => $this->jsDependencies() + $packages);
+        static::updateNodePackages(fn ($packages): array => $this->jsDependencies() + $packages);
 
         if (file_exists(base_path('pnpm-lock.yaml'))) {
             $this->runCommands(['pnpm install', 'pnpm run build']);
@@ -115,19 +115,19 @@ class InstallCommand extends Command
             try {
                 $process->setTty(true);
             } catch (RuntimeException $e) {
-                $this->output->writeln('  <bg=yellow;fg=black> WARN </> ' . $e->getMessage() . PHP_EOL);
+                $this->output->writeln('  <bg=yellow;fg=black> WARN </> '.$e->getMessage().PHP_EOL);
             }
         }
 
         $process->run(function ($type, string $line): void {
-            $this->output->write('    ' . $line);
+            $this->output->write('    '.$line);
         });
     }
 
     private function jsDependencies(): array
     {
         return [
-            "local-time" => "^3.0.3",
+            'local-time' => '^3.0.3',
         ];
     }
 
@@ -156,7 +156,7 @@ class InstallCommand extends Command
 
         file_put_contents(
             base_path('package.json'),
-            json_encode($packages, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . PHP_EOL
+            json_encode($packages, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT).PHP_EOL
         );
     }
 }
