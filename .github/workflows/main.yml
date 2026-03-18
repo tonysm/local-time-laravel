@@ -17,11 +17,14 @@ jobs:
         stability: [prefer-lowest, prefer-stable]
         include:
           - laravel: 11.*
-            testbench: "^9.9"
+            testbench: "^9.15"
+            workbench: 9.*
           - laravel: 12.*
             testbench: 10.*
+            workbench: 10.*
           - laravel: 13.*
             testbench: 11.*
+            workbench: 11.*
         exclude:
           - laravel: 13.*
             php: 8.2
@@ -46,7 +49,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
+          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" "orchestra/workbench:${{ matrix.workbench }}" --no-interaction --no-update
           composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
       - name: Execute tests

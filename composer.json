@@ -22,6 +22,7 @@
     "require-dev": {
         "laravel/pint": "^1.21",
         "orchestra/testbench": "^9.0|^10.0|^11.0",
+        "orchestra/workbench": "^9.6|^10.0|^11.0",
         "phpunit/phpunit": "^10.5|^11.5"
     },
     "autoload": {
@@ -31,12 +32,30 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tonysm\\LocalTimeLaravel\\Tests\\": "tests"
+            "Tonysm\\LocalTimeLaravel\\Tests\\": "tests",
+            "Workbench\\App\\": "workbench/app/",
+            "Workbench\\Database\\Factories\\": "workbench/database/factories/",
+            "Workbench\\Database\\Seeders\\": "workbench/database/seeders/"
         }
     },
     "scripts": {
+        "build": "@php vendor/bin/testbench workbench:build --ansi",
         "test": "vendor/bin/phpunit",
-        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
+        "post-autoload-dump": [
+            "@clear",
+            "@prepare"
+        ],
+        "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
+        "prepare": "@php vendor/bin/testbench package:discover --ansi",
+        "serve": [
+            "Composer\\Config::disableProcessTimeout",
+            "@build",
+            "@php vendor/bin/testbench serve --ansi"
+        ],
+        "lint": [
+            "@php vendor/bin/pint --ansi"
+        ]
     },
     "config": {
         "sort-packages": true
