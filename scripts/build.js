@@ -25,6 +25,7 @@ async function build() {
             outfile,
             bundle: true,
             minify: true,
+            format: 'esm',
         })
 
         manifest[`/${dest}`] = `/vendor/local-time-laravel/${dest}`

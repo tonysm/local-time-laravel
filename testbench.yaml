@@ -5,7 +5,7 @@ providers:
   - Workbench\App\Providers\WorkbenchServiceProvider
 
 workbench:
-  start: "/welcome"
+  start: "/demo"
   install: true
   health: false
   discovers:
@@ -20,7 +20,7 @@ workbench:
     - create-sqlite-db
     - db-wipe
   assets:
-    - laravel-assets
+    - local-time-laravel-assets
   sync:
     - from: storage
       to: workbench/storage
