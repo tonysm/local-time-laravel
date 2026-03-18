@@ -1,5 +1,4 @@
 let fs = require('fs')
-let crypto = require('crypto')
 let path = require('path')
 let esbuild = require('esbuild')
 
@@ -28,14 +27,7 @@ async function build() {
             minify: true,
         })
 
-        let contents = fs.readFileSync(outfile)
-        let hash = crypto.createHash('md5').update(contents).digest('hex').slice(0, 8)
-        let ext = path.extname(dest)
-        let name = dest.replace(ext, '')
-        let hashedName = `${name}-${hash}${ext}`
-
-        fs.renameSync(outfile, path.join(distDir, hashedName))
-        manifest[`/${dest}`] = `/vendor/local-time-laravel/${hashedName}`
+        manifest[`/${dest}`] = `/vendor/local-time-laravel/${dest}`
     }
 
     fs.writeFileSync(path.join(distDir, 'manifest.json'), JSON.stringify(manifest, null, 2) + '\n')
