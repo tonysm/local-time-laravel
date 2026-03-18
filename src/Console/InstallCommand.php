@@ -24,11 +24,13 @@ class InstallCommand extends Command
         if ($this->usingImportmaps()) {
             $this->publishAssets();
             $this->updateJsDependenciesWithImportmaps();
-        } else {
-            $this->updateJsDependenciesWithNpm();
         }
 
         $this->ensureJsLibIsImported();
+
+        if (! $this->usingImportmaps()) {
+            $this->updateJsDependenciesWithNpm();
+        }
 
         $this->newLine();
         $this->components->info('Local Time Laravel was installed successfully.');
