@@ -4,6 +4,7 @@ namespace Tonysm\LocalTimeLaravel;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
+use Tonysm\LocalTimeLaravel\Console\InstallCommand;
 
 class LocalTimeLaravelServiceProvider extends ServiceProvider
 {
@@ -13,6 +14,12 @@ class LocalTimeLaravelServiceProvider extends ServiceProvider
 
         $this->configureComponents();
         $this->configurePublicAssets();
+
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                InstallCommand::class,
+            ]);
+        }
     }
 
     private function configureComponents(): void
